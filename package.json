@@ -6,6 +6,9 @@
   "scripts": {
     "test": "./node_modules/.bin/mocha"
   },
+  "keywords": [
+    "netrc"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/vdemedes/netrc2"
