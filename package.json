@@ -1,0 +1,20 @@
+{
+  "name": "netrc2",
+  "version": "0.1.0",
+  "description": "Parse netrc files with a simple API",
+  "author": "Vadim Demedes <vdemedes@gmail.com>",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vdemedes/netrc2"
+  },
+  "bugs": {
+    "url": "https://github.com/vdemedes/netrc2/issues"
+  },
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "mocha": "^2.0.1"
+  }
+}

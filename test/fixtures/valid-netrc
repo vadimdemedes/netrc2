@@ -1,0 +1,10 @@
+default
+    login default_user
+    password default_password
+
+machine example.com
+    login test_user
+    password test_password
+
+machine example.org
+    login some_user
