@@ -4,6 +4,8 @@ Simple utility to read and save [netrc](http://www.gnu.org/software/inetutils/ma
 
 *Why netrc2?* Because "netrc" is already taken on npm.
 
+[![Circle CI](https://circleci.com/gh/vdemedes/netrc2.svg?style=svg)](https://circleci.com/gh/vdemedes/netrc2)
+
 ## Installation
 
 ```
