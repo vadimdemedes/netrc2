@@ -47,4 +47,9 @@ describe ('Netrc', function () {
 		machines['example.org'][0].should.equal('some_user');
 		machines['example.org'][1].should.equal('');
 	});
+
+	it('should return empty object if netrc file not exist', function () {
+		var machines = netrc(__dirname + '/fixtures/empty-netrc');
+		machines.should.be.empty;
+	})
 });
