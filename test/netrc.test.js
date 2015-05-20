@@ -2,7 +2,8 @@
  * Dependencies
  */
 
-var netrc = require('../');
+const netrc = require('../');
+
 require('chai').should();
 
 
@@ -10,9 +11,10 @@ require('chai').should();
  * Tests
  */
 
-describe ('Netrc', function () {
-	it ('should parse a valid netrc file', function () {
+describe ('netrc2', function () {
+	it ('parse a valid netrc file', function () {
 		var machines = netrc(__dirname + '/fixtures/valid-netrc');
+		
 		machines.should.have.property('default');
 		machines.should.have.property('example.com');
 		machines.should.have.property('example.org');
@@ -27,11 +29,13 @@ describe ('Netrc', function () {
 		machines['example.org'][1].should.equal('');
 	});
 	
-	it ('should format netrc file', function () {
+	it ('format netrc file', function () {
 		var machines = netrc(__dirname + '/fixtures/valid-netrc');
+		
 		machines['example.com'] = ['example_user', 'example_password'];
 		
 		var formatted = machines.toString();
+		
 		machines = netrc.parse(formatted);
 		
 		machines.should.have.property('default');
@@ -48,8 +52,9 @@ describe ('Netrc', function () {
 		machines['example.org'][1].should.equal('');
 	});
 
-	it('should return empty object if netrc file not exist', function () {
+	it ('return empty object if netrc file not exist', function () {
 		var machines = netrc(__dirname + '/fixtures/empty-netrc');
+		
 		machines.should.be.empty;
-	})
+	});
 });
