@@ -52,4 +52,26 @@ describe ('Netrc', function () {
 		var machines = netrc(__dirname + '/fixtures/empty-netrc');
 		machines.should.be.empty;
 	})
+
+	it('should delete a machine from netrc', function () {
+		var machines = netrc(__dirname + '/fixtures/empty-netrc');
+
+		// save an example.com
+		machines['example.com'] = ['example_user', 'example_password'];
+		machines.save();
+
+		// check property
+		machines.should.have.property('example.com');
+		machines['example.com'][0].should.equal('example_user');
+		machines['example.com'][1].should.equal('example_password');
+
+
+		// delete it, and check netrc
+		delete machines['example.com'];
+		machines.save();
+
+		// read netrc again
+		// content should be empty
+		netrc(__dirname + '/fixtures/empty-netrc').should.be.empty;
+	})
 });
