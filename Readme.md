@@ -27,6 +27,11 @@ var password = auth[1];
 
 machines['example.com'] = ['new login', 'new password'];
 machines.save();
+
+
+// delete from netrc
+delete machines['example.com'];
+machines.save();
 ```
 
 ## Tests
