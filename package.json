@@ -1,6 +1,6 @@
 {
   "name": "netrc2",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Parse netrc files with a simple API",
   "author": "Vadim Demedes <vdemedes@gmail.com>",
   "scripts": {
