@@ -52,9 +52,15 @@ describe ('netrc2', function () {
 		machines['example.org'][1].should.equal('');
 	});
 
-	it ('return empty object if netrc file not exist', function () {
+	it ('return empty object if netrc is empty', function () {
 		var machines = netrc(__dirname + '/fixtures/empty-netrc');
 		
+		machines.should.be.empty;
+	});
+
+	it ('return empty object if netrc file does not exist', function () {
+		var machines = netrc(__dirname + '/fixtures/non-existent');
+
 		machines.should.be.empty;
 	});
 });
