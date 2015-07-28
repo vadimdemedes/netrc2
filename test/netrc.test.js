@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Dependencies
  */
@@ -12,6 +14,10 @@ require('chai').should();
  */
 
 describe ('netrc2', function () {
+	it ('parse a default netrc file', function () {
+		let machines = netrc();
+	});
+
 	it ('parse a valid netrc file', function () {
 		var machines = netrc(__dirname + '/fixtures/valid-netrc');
 		

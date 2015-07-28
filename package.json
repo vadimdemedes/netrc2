@@ -18,7 +18,8 @@
   },
   "devDependencies": {
     "chai": "^2.3.0",
-    "make-lint": "^1.0.1",
+    "istanbul-harmony": "^0.3.16",
+    "make-lint": "vdemedes/make-lint",
     "mocha": "^2.2.5"
   },
   "license": "MIT",
