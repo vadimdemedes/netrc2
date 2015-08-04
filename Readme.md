@@ -1,20 +1,20 @@
-# Netrc2
+# netrc2 [![Circle CI](https://circleci.com/gh/vdemedes/netrc2.svg?style=svg)](https://circleci.com/gh/vdemedes/netrc2)
 
 Simple utility to read and save [netrc](http://www.gnu.org/software/inetutils/manual/html_node/The-_002enetrc-File.html) files.
 
 *Why netrc2?* Because "netrc" is already taken on npm.
 
-[![Circle CI](https://circleci.com/gh/vdemedes/netrc2.svg?style=svg)](https://circleci.com/gh/vdemedes/netrc2)
 
-## Installation
+### Installation
 
 ```
-npm install netrc2
+npm install netrc2 --save
 ```
 
-## Usage
 
-**Note**: Netrc2 is synchronous library.
+### Usage
+
+**Note**: netrc2 is a synchronous module.
 
 ```javascript
 var netrc = require('netrc2');
@@ -29,12 +29,14 @@ machines['example.com'] = ['new login', 'new password'];
 machines.save();
 ```
 
-## Tests
+
+### Tests
 
 ```
-npm test
+make test
 ```
 
-## License
 
-Netrc2 is released under the MIT License.
+### License
+
+netrc2 is released under the MIT License.
