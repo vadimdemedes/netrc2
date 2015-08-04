@@ -4,9 +4,10 @@
  * Dependencies
  */
 
-var home = require('user-home');
-var join = require('path').join;
-var fs = require('fs');
+const home = require('user-home');
+const join = require('path').join;
+const fs = require('fs');
+
 
 /**
  * Expose `netrc`
@@ -16,36 +17,38 @@ module.exports = netrc;
 
 netrc.parse = parse;
 
+
 /**
  * Netrc
  */
 
-function netrc(path) {
+function netrc (path) {
   if (!path) {
     path = join(home, '.netrc');
   }
 
-  var result = {};
-
+  let result = {};
+  
   try {
-    var file = fs.readFileSync(path, 'utf-8');
+    let file = fs.readFileSync(path, 'utf-8');
 
     result = parse(file);
-  } catch (err) {}
-  // file does not exist
-
+  } catch (err) {
+    // file does not exist
+  }
+  
   // define non-enumerable methods
   // to format and save netrc object
   Object.defineProperty(result, 'toString', {
     enumerable: false,
     value: toString.bind(result)
   });
-
+  
   Object.defineProperty(result, 'save', {
     enumerable: false,
     value: save.bind(result, path)
   });
-
+  
   return result;
 }
 
@@ -53,17 +56,15 @@ function netrc(path) {
  * Utilities
  */
 
-function parse(netrc) {
-  var result = {};
-  var host = undefined,
-      login = undefined,
-      password = undefined;
+function parse (netrc) {
+  let result = {};
+  let host, login, password;
 
   // if netrc content is empty, just return empty object
-  if (!netrc) {
+  if(!netrc) {
     return result;
   }
-
+  
   netrc.split('\n').forEach(function (line) {
     if (/^(machine|default)/i.test(line)) {
       // if host was already set
@@ -73,11 +74,11 @@ function parse(netrc) {
       // and reset
       if (host) {
         result[host] = [login, password];
-
+        
         login = '';
         password = '';
       }
-
+      
       if (/default/.test(line)) {
         host = 'default';
       } else {
@@ -89,26 +90,26 @@ function parse(netrc) {
       password = /password\s(.+)/i.exec(line)[1];
     }
   });
-
+  
   // after loop finishes
   // last machine entry
   // needs to be set manually
   result[host] = [login, password];
-
+  
   return result;
 }
 
-function toString() {
-  var result = '';
-
-  var keys = Object.keys(this);
-  var self = this;
+function toString () {
+  let result = '';
+  
+  let keys = Object.keys(this);
+  let self = this;
 
   keys.forEach(function (key) {
-    var entry = self[key];
+    let entry = self[key];
 
-    var login = entry[0];
-    var password = entry[1];
+    let login = entry[0];
+    let password = entry[1];
 
     // entry title
     if (key === 'default') {
@@ -129,12 +130,12 @@ function toString() {
       result += '\n';
     }
   });
-
+  
   return result;
 }
 
-function save(path) {
+function save (path) {
   fs.writeFileSync(path, this.toString(), 'utf-8');
-
+  
   return this;
 }

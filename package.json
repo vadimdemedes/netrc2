@@ -17,6 +17,7 @@
     "url": "https://github.com/vdemedes/netrc2/issues"
   },
   "devDependencies": {
+    "babel": "^5.8.20",
     "chai": "^2.3.0",
     "istanbul-harmony": "^0.3.16",
     "make-lint": "vdemedes/make-lint",

@@ -1,7 +1,10 @@
-SRC=lib/*.js
+SRC = $(wildcard src/*.js)
+LIB = $(SRC:src/%.js=lib/%.js)
 
-default:
-	@echo "No default task"
+lib: $(LIB)
+lib/%.js: src/%.js
+	mkdir -p $(@D)
+	./node_modules/.bin/babel -L all $< -o $@
 
 test:
 	@./node_modules/.bin/mocha
